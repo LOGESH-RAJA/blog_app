@@ -5,7 +5,6 @@ import 'package:blog_app/core/common/entities/users.dart';
 import 'package:blog_app/features/auth/domain/usecases/current_user.dart';
 import 'package:blog_app/features/auth/domain/usecases/user_login.dart';
 import 'package:blog_app/features/auth/domain/usecases/user_signup.dart';
-import 'package:blog_app/features/auth/presentation/widgets/form_field.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,6 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> _onAuthUserLogged(
       AuthUserLogged event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     final result = await _currentUser.call(NoParams());
     result.fold(
       (l) {

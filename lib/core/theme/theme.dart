@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final darkThemMode = ThemeData.dark().copyWith(
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppPallete.backgroundColor
-    ),
+      chipTheme: const ChipThemeData(
+          side: BorderSide(style: BorderStyle.none),
+          color: WidgetStatePropertyAll(AppPallete.backgroundColor)),
+      appBarTheme:
+          const AppBarTheme(backgroundColor: AppPallete.backgroundColor),
       scaffoldBackgroundColor: AppPallete.backgroundColor,
       inputDecorationTheme: const InputDecorationTheme(
           contentPadding: EdgeInsets.all(10),
